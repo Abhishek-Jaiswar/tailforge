@@ -43,11 +43,11 @@ const SpecialChallenges = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden bg-neutral-800 rounded-lg shadow-lg p-4 sm:p-6">
       <button
-        className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white shadow-xl transition-all duration-300 ${atStart
-          ? 'opacity-30 cursor-not-allowed'
-          : 'opacity-90 hover:opacity-100 hover:scale-110 hover:shadow-2xl'
+        className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-neutral-800 hover:bg-neutral-900 text-white shadow-xl  transition-all duration-300 ${atStart
+          ? 'opacity-50 cursor-not-allowed'
+          : 'opacity-90 hover:opacity-100 hover:scale-110 hover:shadow-2xl cursor-pointer'
           }`}
         onClick={() => scroll("left")}
         disabled={atStart}
@@ -57,9 +57,9 @@ const SpecialChallenges = () => {
       </button>
 
       <button
-        className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white shadow-xl transition-all duration-300 ${atEnd
+        className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-neutral-800 hover:bg-neutral-900  text-white shadow-xl transition-all duration-300 ${atEnd
           ? 'opacity-30 cursor-not-allowed'
-          : 'opacity-90 hover:opacity-100 hover:scale-110 hover:shadow-2xl'
+          : 'opacity-90 hover:opacity-100 hover:scale-110 hover:shadow-2xl cursor-pointer'
           }`}
         onClick={() => scroll("right")}
         disabled={atEnd}
@@ -72,7 +72,7 @@ const SpecialChallenges = () => {
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex gap-4 py-1 sm:gap-6 sm:px-8 overflow-x-auto scrollbar-hide scroll-smooth h-full"
+        className="flex gap-4 py-1 sm:gap-6 overflow-x-auto scrollbar-hide scroll-smooth h-full"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {SpecialSections.map(({ id, icon: Icon, name, description, speciality, noOfChallenges }) => (

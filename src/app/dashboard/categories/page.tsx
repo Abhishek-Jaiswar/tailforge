@@ -1,6 +1,6 @@
 import React from "react";
-import SpecialChallenges from "../../../components/dashbaord/categories/SpecialChallenges";
-import Filters from "../../../components/dashbaord/categories/Filters";
+import SpecialChallenges from "@/components/dashbaord/categories/SpecialChallenges";
+import Filters from "@/components/dashbaord/categories/Filters";
 
 
 const Categories = () => {
@@ -12,6 +12,7 @@ const Categories = () => {
       <div>
         <Filters />
       </div>
+      
     </div>
   );
 };
