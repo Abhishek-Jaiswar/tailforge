@@ -1,27 +1,47 @@
-import Dropdown from '@/components/Dropdown'
-import React from 'react'
-import SearchBar from './SearchBar'
+import Dropdown from "@/components/Dropdown";
+import React from "react";
+import SearchBar from "./SearchBar";
 
 const Filters = () => {
   return (
-    <div className=' mt-10 mb-6 px-4 py-2 bg-neutral-800 rounded-lg flex items-center justify-between'>
-      <div>
-        <h2 className='text-lg font-semibold text-white'>Filters</h2>
-        <p className='text-sm text-neutral-400'>Select your preferences to filter challenges</p>
-      </div>
-      <div className='flex items-center justify-center gap-5'>
-        <div className='mr-4'>
-          <Dropdown name='Level' items={["Easy", "Medium", "Hard"]} />
-        </div>
+    <div className="bg-neutral-800/50 rounded-lg border border-neutral-700 p-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <Dropdown width=' w-48' name='Category' items={["All", "Web Development", "Data Science", "Machine Learning", "Mobile Development"]} />
+          <h2 className="text-lg font-semibold text-white">Filters</h2>
+          <p className="text-sm text-neutral-400">
+            Select your preferences to filter challenges
+          </p>
         </div>
-        <div>
-          <SearchBar />
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <div className="flex items-center gap-4">
+            <Dropdown
+              name="Level"
+              items={["All", "Easy", "Medium", "Hard"]}
+              className="w-32"
+            />
+            <Dropdown
+              name="Category"
+              items={[
+                "All",
+                "Navigation",
+                "Layout",
+                "Forms",
+                "Modals",
+                "Lists",
+                "Theming",
+                "Interactions",
+                "Charts",
+              ]}
+              className="w-40"
+            />
+          </div>
+          <div className="w-full sm:w-64">
+            <SearchBar />
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Filters
+export default Filters;

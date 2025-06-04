@@ -1,30 +1,31 @@
 "use client";
 
-import React, { useState } from "react";
-import Sidebar from "../../components/dashbaord/Sidebar";
-import Header from "../../components/dashbaord/Header";
+import { useState } from "react";
+import Sidebar from "@/components/dashbaord/Sidebar";
+import Header from "@/components/dashbaord/Header";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="min-h-screen bg-neutral-900 flex overflow-hidden">
-      <div
-        className={`bg-neutral-800 min-h-screen transition-all duration-300 sticky top-0
-              ${isOpen ? "w-64" : "w-14"}
-              hidden sm:block
-              `}
-      >
-        <Sidebar isOpen={isOpen} />
-      </div>
-      <main className="flex-1 flex flex-col min-h-screen bg-neutral-900 min-w-0">
-        <Header setIsOpen={setIsOpen} />
-        <div className="p-4 flex-1 overflow-hidden">
-          {children}
+    <div className="min-h-screen bg-neutral-900 overflow-x-hidden">
+      <div className="grid grid-cols-[auto_1fr] h-screen">
+        <div className="sticky top-0 h-screen">
+          <Sidebar isOpen={isOpen} />
         </div>
-      </main>
+        <div className="flex flex-col min-h-screen overflow-x-hidden">
+          <div className="sticky top-0 z-10">
+            <Header setIsOpen={setIsOpen} />
+          </div>
+          <main className="flex-1 p-6 overflow-y-auto overflow-x-hidden h-[calc(100vh-3rem)]">
+            {children}
+          </main>
+        </div>
+      </div>
     </div>
   );
-};
-
-export default Layout;
+}
