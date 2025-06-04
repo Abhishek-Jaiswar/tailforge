@@ -39,7 +39,7 @@ const Sidebar = ({ isOpen }: SidebarT) => {
   ]
 
   return (
-    <div className='min-h-screen bg-neutral-800/30 w-full border-r border-neutral-700'>
+    <div className='min-h-screen sticky top-0 bg-neutral-800/30 w-full border-r border-neutral-700'>
       <div className="flex items-center justify-center w-full h-12 border-b border-neutral-700">
         {isOpen ? <Logo /> : (
           <h1 className='text-neutral-300 text-lg font-bold font-mono'>TF</h1>

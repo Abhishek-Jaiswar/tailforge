@@ -155,12 +155,4 @@ const SpecialChallenges = () => {
   );
 };
 
-const Categories = () => {
-  return (
-    <div className="w-full min-h-screen bg-neutral-900">
-      <SpecialChallenges />
-    </div>
-  );
-};
-
-export default Categories;
+export default SpecialChallenges

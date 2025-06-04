@@ -8,7 +8,7 @@ interface HeaderT {
 
 const Header = ({ setIsOpen }: HeaderT) => {
   return (
-    <div className="min-h-12 bg-neutral-800/30 border-b border-neutral-700 flex items-center px-6 text-sm text-white w-full">
+    <div className=" sticky top-0 min-h-12 bg-neutral-800/30 border-b border-neutral-700 flex items-center px-6 text-sm text-white w-full">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center justify-center gap-2 cursor-pointer">
           <button
