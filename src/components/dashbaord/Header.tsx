@@ -10,7 +10,8 @@ const Header = ({ setIsOpen }: HeaderT) => {
   return (
     <div className="h-12 bg-neutral-800/30 border-b border-neutral-700">
       <div className="flex items-center justify-between h-full px-6 text-sm text-white">
-        <div className="flex items-center justify-center gap-2 cursor-pointer">
+        <div className="flex items-center justify-center gap-2">
+          {/* Menu button - visible on all devices */}
           <button
             onClick={() => setIsOpen((prev) => !prev)}
             aria-label="Toggle sidebar"

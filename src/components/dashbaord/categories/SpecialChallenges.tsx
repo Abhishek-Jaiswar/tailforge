@@ -93,39 +93,22 @@ const SpecialChallenges = () => {
           }) => (
             <div
               key={id}
-              className={`group relative flex-shrink-0 w-72 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 ${
-                hoveredCard === id
-                  ? "shadow-2xl shadow-neutral-700/30"
-                  : "hover:shadow-xl"
-              }`}
+              className="group relative flex-shrink-0 w-72 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl"
               onMouseEnter={() => setHoveredCard(id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Card Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-900" />
-
-              {/* Hover Effect */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-r from-neutral-700/20 to-neutral-600/20 opacity-0 transition-opacity duration-300 ${
-                  hoveredCard === id ? "opacity-100" : "group-hover:opacity-50"
-                }`}
-              />
+              <div className="absolute inset-0 bg-neutral-800" />
 
               {/* Content */}
               <div className="relative z-10 p-6 h-full flex flex-col justify-between">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
-                  <div
-                    className={`w-12 h-12 rounded-xl bg-neutral-700/50 backdrop-blur-sm border border-neutral-600/30 flex items-center justify-center transition-all duration-300 ${
-                      hoveredCard === id
-                        ? "scale-110 rotate-3"
-                        : "group-hover:scale-105"
-                    }`}
-                  >
-                    <Icon className="w-6 h-6 text-neutral-300" />
+                  <div className="w-12 h-12 rounded-xl bg-neutral-700/50 backdrop-blur-sm border border-neutral-600/30 flex items-center justify-center">
+                    <Icon className="w-6 h-6 text-amber-400" />
                   </div>
                   <div className="px-3 py-1 rounded-full bg-neutral-700/50 backdrop-blur-sm border border-neutral-600/30">
-                    <span className="text-xs font-medium text-neutral-300">
+                    <span className="text-xs font-medium text-amber-400">
                       NEW
                     </span>
                   </div>
@@ -133,14 +116,12 @@ const SpecialChallenges = () => {
 
                 {/* Content */}
                 <div className="space-y-3">
-                  <h3 className="text-xl font-bold text-white group-hover:text-neutral-200 transition-colors duration-300">
-                    {name}
-                  </h3>
+                  <h3 className="text-xl font-bold text-white">{name}</h3>
                   <p className="text-sm text-neutral-400 leading-relaxed">
                     {description}
                   </p>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-neutral-500 font-medium">
+                    <span className="text-xs text-amber-400/90 font-medium">
                       {speciality}
                     </span>
                   </div>
@@ -152,11 +133,11 @@ const SpecialChallenges = () => {
                     <span className="text-sm text-neutral-400">
                       {noOfChallenges} Challenges
                     </span>
-                    <span className="text-xs text-neutral-500">
+                    <span className="text-xs text-amber-400/90">
                       Updated recently
                     </span>
                   </div>
-                  <button className="w-full py-2.5 px-4 rounded-lg bg-neutral-700/50 hover:bg-neutral-600/50 text-white font-medium text-sm transition-all duration-300 border border-neutral-600/30 hover:border-neutral-500/30">
+                  <button className="w-full py-2.5 px-4 rounded-lg bg-neutral-700/50 hover:bg-neutral-600/50 text-white font-medium text-sm transition-all duration-300 border border-neutral-600/30">
                     Start Learning
                   </button>
                 </div>
@@ -175,7 +156,7 @@ const SpecialChallenges = () => {
           (_, index) => (
             <div
               key={index}
-              className="w-1.5 h-1.5 rounded-full bg-neutral-700 transition-colors duration-300"
+              className="w-1.5 h-1.5 rounded-full bg-neutral-700"
             />
           )
         )}

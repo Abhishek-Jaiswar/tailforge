@@ -9,13 +9,40 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 interface SidebarT {
   isOpen: boolean;
+  onClose?: () => void;
 }
 
-const Sidebar = ({ isOpen }: SidebarT) => {
+const Sidebar = ({ isOpen, onClose }: SidebarT) => {
   const pathname = usePathname();
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  // Handle click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        // Only close on mobile (screen width < 768px)
+        if (window.innerWidth < 768 && onClose) {
+          onClose();
+        }
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose]);
+
   const navigations = [
     {
       id: 0,
@@ -43,11 +70,19 @@ const Sidebar = ({ isOpen }: SidebarT) => {
     },
   ];
 
+  const handleLinkClick = () => {
+    // Only close on mobile (screen width < 768px)
+    if (window.innerWidth < 768 && onClose) {
+      onClose();
+    }
+  };
+
   return (
     <div
+      ref={sidebarRef}
       className={`h-screen bg-neutral-800/30 border-r border-neutral-700 transition-all duration-300 ${
         isOpen ? "w-64" : "w-16"
-      }`}
+      } md:relative fixed inset-y-0 left-0`}
     >
       <div className="flex items-center justify-center h-12 border-b border-neutral-700">
         {isOpen ? (
@@ -57,19 +92,24 @@ const Sidebar = ({ isOpen }: SidebarT) => {
         )}
       </div>
 
-      <div className="flex flex-col items-start justify-center gap-2 p-2">
+      <div className="p-4 space-y-2">
         {navigations.map(({ icon: Icon, id, title, path }) => {
-          // More precise active state logic to prevent glitches
           const isActive =
             path === "/dashboard"
               ? pathname === "/dashboard"
               : pathname.startsWith(path);
 
           return (
-            <Link key={id} href={path} className="w-full">
+            <Link
+              key={id}
+              href={path}
+              className="w-full"
+              onClick={handleLinkClick}
+            >
               <div
                 className={`w-full p-3 flex items-center gap-3 rounded-xl transition-colors duration-150 hover:bg-neutral-700/50
                 ${isActive ? "bg-neutral-700" : ""}
+                ${!isOpen ? "justify-center" : ""}
               `}
               >
                 <Icon className="w-5 h-5 text-neutral-100 flex-shrink-0" />
