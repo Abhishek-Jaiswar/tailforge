@@ -1,6 +1,8 @@
+'use client';
+
 import React from "react";
 import { CheckCircle2, Circle, Clock, Star } from "lucide-react";
-
+import { useRouter } from "next/navigation";
 interface Challenge {
   id: number;
   title: string;
@@ -87,6 +89,7 @@ const mockChallenges: Challenge[] = [
 ];
 
 const ChallengeList = () => {
+  const router = useRouter();
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case "Easy":
@@ -139,6 +142,7 @@ const ChallengeList = () => {
               {mockChallenges.map((challenge) => (
                 <tr
                   key={challenge.id}
+                  onClick={() => router.push(`/questions/${challenge.id}`)}
                   className="hover:bg-neutral-700/30 transition-colors duration-150 cursor-pointer"
                 >
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -155,11 +159,7 @@ const ChallengeList = () => {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span
-                      className={`text-sm ${getDifficultyColor(
-                        challenge.difficulty
-                      )}`}
-                    >
+                    <span className={`text-sm ${getDifficultyColor(challenge.difficulty)}`}>
                       {challenge.difficulty}
                     </span>
                   </td>

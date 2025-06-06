@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SpecialSections from "@/components/dummies/categoryfeat";
+import { useRouter } from "next/navigation";
 
 const CARD_WIDTH: number = 288 + 16; // card width (w-72) + gap on mobile
 const CARD_WIDTH_SM: number = 320 + 24; // card width (w-80) + gap on desktop
@@ -13,6 +14,8 @@ const SpecialChallenges = () => {
   const [atEnd, setAtEnd] = useState<boolean>(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const router = useRouter();
 
   const scroll = (direction: "left" | "right"): void => {
     if (scrollRef.current) {
@@ -50,11 +53,10 @@ const SpecialChallenges = () => {
     <div className="relative w-full overflow-hidden bg-neutral-800/50 rounded-lg border border-neutral-700 shadow-lg">
       {/* Navigation Buttons */}
       <button
-        className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-neutral-800/80 backdrop-blur-sm border border-neutral-700 text-white shadow-lg transition-all duration-300 ${
-          atStart
-            ? "opacity-50 cursor-not-allowed"
-            : "opacity-90 hover:opacity-100 hover:scale-105 hover:shadow-xl cursor-pointer"
-        }`}
+        className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-neutral-800/80 backdrop-blur-sm border border-neutral-700 text-white shadow-lg transition-all duration-300 ${atStart
+          ? "opacity-50 cursor-not-allowed"
+          : "opacity-90 hover:opacity-100 hover:scale-105 hover:shadow-xl cursor-pointer"
+          }`}
         onClick={() => scroll("left")}
         disabled={atStart}
         aria-label="Scroll left"
@@ -63,11 +65,10 @@ const SpecialChallenges = () => {
       </button>
 
       <button
-        className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-neutral-800/80 backdrop-blur-sm border border-neutral-700 text-white shadow-lg transition-all duration-300 ${
-          atEnd
-            ? "opacity-50 cursor-not-allowed"
-            : "opacity-90 hover:opacity-100 hover:scale-105 hover:shadow-xl cursor-pointer"
-        }`}
+        className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-neutral-800/80 backdrop-blur-sm border border-neutral-700 text-white shadow-lg transition-all duration-300 ${atEnd
+          ? "opacity-50 cursor-not-allowed"
+          : "opacity-90 hover:opacity-100 hover:scale-105 hover:shadow-xl cursor-pointer"
+          }`}
         onClick={() => scroll("right")}
         disabled={atEnd}
         aria-label="Scroll right"
@@ -137,7 +138,7 @@ const SpecialChallenges = () => {
                       Updated recently
                     </span>
                   </div>
-                  <button className="w-full py-2.5 px-4 rounded-lg bg-neutral-700/50 hover:bg-neutral-600/50 text-white font-medium text-sm transition-all duration-300 border border-neutral-600/30">
+                  <button onClick={() => router.push("/questions/" + id)} className="w-full py-2.5 px-4 rounded-lg bg-neutral-700/50 hover:bg-neutral-600/50 text-white font-medium text-sm transition-all duration-300 border border-neutral-600/30">
                     Start Learning
                   </button>
                 </div>
