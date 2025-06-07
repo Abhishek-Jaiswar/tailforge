@@ -2,7 +2,7 @@
 
 **TailForge** is a developer-focused platform designed to help beginners and frontend enthusiasts practice **Tailwind CSS** by building real-world UI challenges. It's ideal for improving your design implementation skills using modern tech stacks.
 
-[![Vercel Deployment](https://vercelbadge.vercel.app/api/tailforge/tailforge)](https://tailforge.vercel.app)  
+[![Vercel Deployment](https://vercelbadge.vercel.app/api/abhishek-jaiswar/tailforge)](https://tailforge.vercel.app)  
 🔗 [Live Demo →](https://tailforge.vercel.app)
 
 ---
