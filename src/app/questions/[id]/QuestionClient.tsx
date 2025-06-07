@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import {
-    Code2,
     BookOpen,
     Play,
     FileText,
@@ -15,16 +14,15 @@ import {
 import Link from "next/link";
 import Tabs from "@/components/dashbaord/questions/Tabs";
 import AIChat from "@/components/dashbaord/ai/AIChat";
+import { useId } from "react";
 
-type QuestionClientProps = {
-    questionId: string;
-};
 
-const QuestionClient = ({ questionId }: QuestionClientProps) => {
+const QuestionClient = () => {
     const [activeTab, setActiveTab] = useState("question");
+    const uniqueId = useId();
     // Mock data - this would come from your API
     const question = {
-        id: questionId,
+        id: uniqueId,
         title: "Responsive Navigation Bar",
         description:
             "Create a modern navigation bar that adapts to different screen sizes. The navigation should include a logo, menu items, and a mobile menu toggle. Implement smooth animations for the mobile menu and ensure it works well on all screen sizes.",

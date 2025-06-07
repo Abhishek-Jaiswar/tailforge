@@ -9,7 +9,7 @@ const CARD_WIDTH: number = 288 + 16; // card width (w-72) + gap on mobile
 const CARD_WIDTH_SM: number = 320 + 24; // card width (w-80) + gap on desktop
 
 const SpecialChallenges = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  // const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [atStart, setAtStart] = useState<boolean>(true);
   const [atEnd, setAtEnd] = useState<boolean>(false);
 
@@ -95,8 +95,6 @@ const SpecialChallenges = () => {
             <div
               key={id}
               className="group relative flex-shrink-0 w-72 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl"
-              onMouseEnter={() => setHoveredCard(id)}
-              onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Card Background */}
               <div className="absolute inset-0 bg-neutral-800" />

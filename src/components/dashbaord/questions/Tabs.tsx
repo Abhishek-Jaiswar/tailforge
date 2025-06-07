@@ -1,5 +1,4 @@
 import { BookOpen, Code2, MessageSquare } from 'lucide-react';
-import React, { useState } from 'react'
 
 interface TabProps {
   activeTab: string;

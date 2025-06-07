@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import AIChat from "@/components/dashbaord/ai/AIChat";
-import QuestionGenerator from "@/components/dashbaord/ai/QuestionGenerator";
 import TutorialSection from "@/components/dashbaord/ai/TutorialSection";
 import {
   History,

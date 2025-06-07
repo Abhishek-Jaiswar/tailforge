@@ -4,8 +4,6 @@ import {
   Settings,
   Trophy,
   Clock,
-  Star,
-  TrendingUp,
   Mail,
   Calendar,
 } from "lucide-react";

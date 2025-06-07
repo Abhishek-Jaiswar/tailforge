@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
 
 interface DropdownT {

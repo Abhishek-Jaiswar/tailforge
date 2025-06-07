@@ -1,27 +1,20 @@
 import React from "react";
 import { Star } from "lucide-react";
 
-const testimonials = [
+type TestimonialType = {
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+};
+
+const testimonials: TestimonialType[] = [
   {
     quote:
-      "TailForge helped me land my dream job as a frontend developer. The challenges are exactly what companies are looking for.",
-    author: "Sarah Chen",
-    role: "Frontend Developer",
-    company: "TechCorp",
-  },
-  {
-    quote:
-      "The AI feedback is incredible. It's like having a senior developer review your code in real-time.",
-    author: "Mike Johnson",
-    role: "Full Stack Developer",
-    company: "StartupX",
-  },
-  {
-    quote:
-      "I went from zero to hero in Tailwind CSS thanks to TailForge's structured learning path.",
-    author: "Alex Rivera",
-    role: "UI Developer",
-    company: "DesignCo",
+      'TailForge helped me land my dream job as a frontend developer. The challenges are exactly what companies are looking for.',
+    author: 'Sarah Chen',
+    role: 'Frontend Developer',
+    company: 'TechCorp',
   },
 ];
 
@@ -56,7 +49,7 @@ const TestimonialSection = () => {
                   ))}
                 </div>
                 <blockquote className="text-neutral-300 mb-6">
-                  "{testimonial.quote}"
+                  {testimonial.quote}
                 </blockquote>
                 <div>
                   <div className="font-semibold text-white">
